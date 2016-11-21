@@ -13,42 +13,14 @@ public class MainActivity extends AppCompatActivity {
 
     ListView lv;
     String fruits[] = {"蘋果", "西瓜", "楊桃", "鳳梨"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         lv = (ListView) findViewById(R.id.listView);
-        MyAdapter adapter = new MyAdapter();
+        MyAdapter adapter = new MyAdapter(MainActivity.this,fruits);
         lv.setAdapter(adapter);
-    }
-
-    class MyAdapter extends BaseAdapter{
-
-        @Override
-        public int getCount() {
-            return fruits.length;
-        }       //控制執行次數
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = getLayoutInflater();
-            View v = inflater.inflate(R.layout.myitem,null);
-
-            TextView tv = (TextView) v.findViewById(R.id.textView);
-            tv.setText(fruits[position]);        //position 為接收getCount
-
-            return v;
-        }
     }
 }
