@@ -22,5 +22,6 @@ public class MainActivity extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.listView);
         MyAdapter adapter = new MyAdapter(MainActivity.this,fruits);
         lv.setAdapter(adapter);
+
     }
 }
