@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,14 +17,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         lv = (ListView) findViewById(R.id.listView);
+        MyAdapter adapter = new MyAdapter();
+        lv.setAdapter(adapter);
     }
 
     class MyAdapter extends BaseAdapter{
 
         @Override
         public int getCount() {
-            return 0;
-        }
+            return 5;
+        }       //控制執行次數
 
         @Override
         public Object getItem(int position) {
@@ -37,7 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            return null;
+            TextView tv = new TextView(MainActivity.this);
+            tv.setText("Hello: "+ position);        //position 為接收getCount
+
+            return tv;
         }
     }
 }
