@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     ListView lv;
+    String fruits[] = {"蘋果", "西瓜", "楊桃", "鳳梨"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 5;
+            return fruits.length;
         }       //控制執行次數
 
         @Override
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             TextView tv = new TextView(MainActivity.this);
-            tv.setText("Hello: "+ position);        //position 為接收getCount
+            tv.setText(fruits[position]);        //position 為接收getCount
 
             return tv;
         }
