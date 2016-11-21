@@ -2,6 +2,7 @@ package com.example.user.a20161121_test1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -41,10 +42,13 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            TextView tv = new TextView(MainActivity.this);
+            LayoutInflater inflater = getLayoutInflater();
+            View v = inflater.inflate(R.layout.myitem,null);
+
+            TextView tv = (TextView) v.findViewById(R.id.textView);
             tv.setText(fruits[position]);        //position 為接收getCount
 
-            return tv;
+            return v;
         }
     }
 }
